@@ -5,6 +5,7 @@ import type { components } from "../lib/api";
 
 type IncidentCreateRequest = components["schemas"]["IncidentCreateRequest"];
 type IncidentSummaryResponse = components["schemas"]["IncidentSummaryResponse"];
+type IncidentAnalyzeResponse = components["schemas"]["IncidentAnalyzeResponse"];
 type HttpValidationError = components["schemas"]["HTTPValidationError"];
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
@@ -61,6 +62,7 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingRecent, setIsLoadingRecent] = useState(true);
+  const [activeAnalyzeId, setActiveAnalyzeId] = useState<string | null>(null);
 
   async function loadRecentIncidents(): Promise<void> {
     setIsLoadingRecent(true);
@@ -124,6 +126,46 @@ export default function Home() {
       setErrorMessage(error instanceof Error ? error.message : "Unable to create incident");
     } finally {
       setIsSubmitting(false);
+    }
+  }
+
+  async function handleAnalyze(incidentId: string): Promise<void> {
+    setErrorMessage(null);
+    setActiveAnalyzeId(incidentId);
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/incidents/${incidentId}/analyze`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(await readErrorMessage(response));
+      }
+
+      const body = (await response.json()) as IncidentAnalyzeResponse;
+      setRecentIncidents((items) =>
+        items.map((incident) =>
+          incident.id === body.incident_id
+            ? {
+                ...incident,
+                status: body.status,
+              }
+            : incident,
+        ),
+      );
+      setCreatedIncident((incident) =>
+        incident && incident.id === body.incident_id
+          ? {
+              ...incident,
+              status: body.status,
+            }
+          : incident,
+      );
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Unable to queue analysis");
+    } finally {
+      setActiveAnalyzeId(null);
     }
   }
 
@@ -248,7 +290,22 @@ export default function Home() {
                   <time className="text-xs text-zinc-500">{formatCreatedAt(incident.created_at)}</time>
                 </div>
                 <p className="mt-3 line-clamp-3 text-sm leading-6 text-zinc-800">{incident.original_text}</p>
-                <div className="mt-3 break-all font-mono text-xs text-zinc-500">{incident.id}</div>
+                <div className="mt-3 flex items-end justify-between gap-3">
+                  <div className="break-all font-mono text-xs text-zinc-500">{incident.id}</div>
+                  <button
+                    type="button"
+                    className="h-8 shrink-0 rounded-md border border-zinc-300 px-3 text-sm font-medium text-zinc-900 disabled:cursor-not-allowed disabled:opacity-50"
+                    onClick={() => void handleAnalyze(incident.id)}
+                    disabled={
+                      activeAnalyzeId === incident.id ||
+                      incident.status === "queued" ||
+                      incident.status === "analyzing" ||
+                      incident.status === "analyzed"
+                    }
+                  >
+                    {activeAnalyzeId === incident.id ? "Queuing" : "Analyze"}
+                  </button>
+                </div>
               </article>
             ))}
           </div>

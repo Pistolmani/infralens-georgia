@@ -56,6 +56,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/incidents/{incident_id}/analyze": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Analyze Incident Endpoint */
+        post: operations["analyze_incident_endpoint_incidents__incident_id__analyze_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -82,6 +99,19 @@ export interface components {
             services: {
                 [key: string]: components["schemas"]["ServiceHealth"];
             };
+        };
+        /** IncidentAnalyzeResponse */
+        IncidentAnalyzeResponse: {
+            /**
+             * Incident Id
+             * Format: uuid
+             */
+            incident_id: string;
+            status: components["schemas"]["IncidentStatus"];
+            /** Job Id */
+            job_id: string;
+            /** Queue Name */
+            queue_name: string;
         };
         /** IncidentCreateRequest */
         IncidentCreateRequest: {
@@ -316,6 +346,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["IncidentDetailResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    analyze_incident_endpoint_incidents__incident_id__analyze_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                incident_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["IncidentAnalyzeResponse"];
                 };
             };
             /** @description Validation Error */

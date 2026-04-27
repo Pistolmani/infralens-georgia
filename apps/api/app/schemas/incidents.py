@@ -68,3 +68,9 @@ class IncidentListResponse(BaseModel):
     limit: int
     offset: int
 
+
+class IncidentAnalyzeResponse(BaseModel):
+    incident_id: uuid.UUID
+    status: IncidentStatus
+    job_id: str
+    queue_name: str

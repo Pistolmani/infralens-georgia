@@ -1,20 +1,26 @@
 from __future__ import annotations
 
 import uuid
+from datetime import UTC, datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from redis.exceptions import RedisError
+from rq import Queue
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
 from app.models.tables import Incident
 from app.schemas.incidents import (
+    IncidentAnalyzeResponse,
     IncidentCreateRequest,
     IncidentDetailResponse,
     IncidentListResponse,
     IncidentSummaryResponse,
 )
+from app.workers.incidents import analyze_incident
+from app.workers.queue import get_default_queue
 
 router = APIRouter(prefix="/incidents", tags=["incidents"])
 
@@ -95,3 +101,50 @@ def get_incident(incident_id: uuid.UUID, db: Annotated[Session, Depends(get_db)]
 
     return _incident_detail(incident)
 
+
+@router.post(
+    "/{incident_id}/analyze",
+    response_model=IncidentAnalyzeResponse,
+    status_code=status.HTTP_202_ACCEPTED,
+)
+def analyze_incident_endpoint(
+    incident_id: uuid.UUID,
+    db: Annotated[Session, Depends(get_db)],
+    queue: Annotated[Queue, Depends(get_default_queue)],
+) -> IncidentAnalyzeResponse:
+    incident = db.get(Incident, incident_id)
+    if incident is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Incident not found",
+        )
+
+    previous_status = incident.status
+    previous_failure_details = incident.failure_details
+    previous_updated_at = incident.updated_at
+
+    incident.status = "queued"
+    incident.failure_details = None
+    incident.updated_at = datetime.now(UTC)
+
+    try:
+        job = queue.enqueue(analyze_incident, str(incident.id))
+    except RedisError as exc:
+        incident.status = previous_status
+        incident.failure_details = previous_failure_details
+        incident.updated_at = previous_updated_at
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Analysis queue is unavailable",
+        ) from exc
+
+    db.commit()
+    db.refresh(incident)
+
+    return IncidentAnalyzeResponse(
+        incident_id=incident.id,
+        status=incident.status,
+        job_id=job.id,
+        queue_name=queue.name,
+    )

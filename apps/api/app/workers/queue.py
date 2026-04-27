@@ -13,3 +13,6 @@ def get_queue(settings: Settings | None = None, name: str = DEFAULT_QUEUE_NAME) 
     connection = Redis.from_url(resolved_settings.redis_url)
     return Queue(name, connection=connection)
 
+
+def get_default_queue() -> Queue:
+    return get_queue()
