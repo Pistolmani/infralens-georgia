@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -18,6 +19,7 @@ class Settings(BaseSettings):
     ollama_reasoning_model: str = Field(default="qwen3:8b", alias="OLLAMA_REASONING_MODEL")
     ollama_embed_model: str = Field(default="bge-m3", alias="OLLAMA_EMBED_MODEL")
     ingest_key: str = Field(default="change-me-local", alias="INGEST_KEY")
+    seed_data_dir: Path = Field(default=Path("seed_data/procurement"), alias="SEED_DATA_DIR")
 
     model_config = SettingsConfigDict(
         env_file=".env",
