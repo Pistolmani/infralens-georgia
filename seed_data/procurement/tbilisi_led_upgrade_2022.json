@@ -1,0 +1,88 @@
+{
+  "ocid": "ocds-tbilisi-2022-led-001",
+  "id": "tbilisi-2022-led-001-release-1",
+  "date": "2022-06-20T09:00:00Z",
+  "tag": ["award"],
+  "initiationType": "tender",
+  "language": "en",
+  "buyer": {
+    "id": "GE-TBILISI-CITY-HALL",
+    "name": "Tbilisi City Hall Department of Municipal Services"
+  },
+  "tender": {
+    "id": "tbilisi-tender-2022-led-001",
+    "title": "LED Street Lamp Replacement Programme — Central Tbilisi Pilot Phase",
+    "description": "Pilot programme to replace legacy high-pressure sodium and mercury vapour streetlights with energy-efficient LED luminaires across central Tbilisi. The pilot covers approximately 4,200 streetlight points along Rustaveli Avenue, Kostava Street, Agmashenebeli Avenue from Marjanishvili Square to Vagzlis Moedani, and all side streets within the Old Town (Abanotubani, Narikala environs, and Shardeni pedestrian zone). LED luminaires must meet a minimum efficacy of 130 lm/W and have a correlated colour temperature of 4000K. Luminaire lifespan must be rated at 50,000 hours minimum. Each pole installation includes a wireless remote monitoring node for real-time fault detection, enabling the city operations centre to identify non-functioning streetlights without waiting for citizen reports. The programme includes disposal of replaced mercury-containing lamps according to Georgian environmental regulations. Poles found to be structurally unsound during replacement are to be documented and reported to the Infrastructure Department for separate structural remediation. Installation must be phased to avoid full street blackout; a minimum of 50 percent luminaire coverage must be maintained on any block at all times during works.",
+    "procurementMethod": "open",
+    "procurementMethodDetails": "Open international competitive tender",
+    "status": "complete",
+    "value": {
+      "amount": 7600000,
+      "currency": "GEL"
+    },
+    "tenderPeriod": {
+      "startDate": "2022-03-01T00:00:00Z",
+      "endDate": "2022-05-15T23:59:00Z"
+    },
+    "items": [
+      {
+        "id": "1",
+        "description": "LED streetlight luminaire (80W, 4000K, IP66)",
+        "quantity": 2100,
+        "unit": {"name": "unit", "value": {"amount": 680, "currency": "GEL"}}
+      },
+      {
+        "id": "2",
+        "description": "LED streetlight luminaire (120W, 4000K, IP66) for arterial roads",
+        "quantity": 2100,
+        "unit": {"name": "unit", "value": {"amount": 920, "currency": "GEL"}}
+      },
+      {
+        "id": "3",
+        "description": "Wireless monitoring node per pole",
+        "quantity": 4200,
+        "unit": {"name": "unit", "value": {"amount": 195, "currency": "GEL"}}
+      },
+      {
+        "id": "4",
+        "description": "Installation labour per luminaire including wiring",
+        "quantity": 4200,
+        "unit": {"name": "unit", "value": {"amount": 85, "currency": "GEL"}}
+      },
+      {
+        "id": "5",
+        "description": "Old lamp disposal (mercury-containing) per unit",
+        "quantity": 4200,
+        "unit": {"name": "unit", "value": {"amount": 12, "currency": "GEL"}}
+      }
+    ]
+  },
+  "awards": [
+    {
+      "id": "tbilisi-award-2022-led-001",
+      "status": "active",
+      "date": "2022-06-15T00:00:00Z",
+      "value": {"amount": 7420000, "currency": "GEL"},
+      "suppliers": [
+        {
+          "id": "GE-COMPANY-LEDTECH-002",
+          "name": "GeoLED Infrastructure Solutions JSC"
+        }
+      ],
+      "description": "Award for LED streetlight replacement pilot. Supplier qualified with demonstrated installation of over 15,000 LED streetlight points in Batumi and Rustavi municipal projects 2020–2021. Warranty provided: 5 years on luminaires, 2 years on wireless monitoring nodes. Energy consumption reduction projected at 62 percent versus replaced legacy fixtures."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "tbilisi-contract-2022-led-001",
+      "awardID": "tbilisi-award-2022-led-001",
+      "status": "terminated",
+      "period": {
+        "startDate": "2022-07-01T00:00:00Z",
+        "endDate": "2023-01-31T23:59:00Z"
+      },
+      "value": {"amount": 7420000, "currency": "GEL"},
+      "description": "Seven-month installation contract for central Tbilisi LED streetlight upgrade. Phase 1 (July–August 2022): Rustaveli Avenue full length from Freedom Square to Marjanishvili (380 poles). Phase 2 (September–October 2022): Agmashenebeli Avenue and connecting side streets (1,100 poles). Phase 3 (November 2022–January 2023): Old Town pedestrian zones and Kostava Street (2,720 poles). Each phase subject to commissioning sign-off by Infrastructure Department inspector before proceeding. Remote monitoring dashboard to be handed over to Tbilisi City Hall operations centre upon contract completion. All replaced poles with structural deficiencies documented in final handover report. Contract closed with 4,180 of 4,200 planned luminaires installed; 20 points deferred to structural repair programme."
+    }
+  ]
+}
