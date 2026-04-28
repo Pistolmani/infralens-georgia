@@ -1,0 +1,100 @@
+{
+  "ocid": "ocds-batumi-2022-bl-001",
+  "id": "batumi-2022-bl-001-release-1",
+  "date": "2022-09-14T10:00:00Z",
+  "tag": ["award"],
+  "initiationType": "tender",
+  "language": "en",
+  "buyer": {
+    "id": "GE-BATUMI-CITY-HALL",
+    "name": "Batumi City Hall Department of Urban Development"
+  },
+  "tender": {
+    "id": "batumi-tender-2022-bl-001",
+    "title": "Public Lighting Infrastructure — Batumi Seaside Boulevard Extension and Existing System Rehabilitation",
+    "description": "Procurement for comprehensive public lighting works on the Batumi Seaside Boulevard covering both new installation for the northern extension (Sheraton Hotel junction to Chakvi River) and full rehabilitation of the existing southern section (Piazza Batumi to the Dolphinarium). The existing southern section suffers from multiple chronic failures: approximately 35 percent of streetlights are non-functional at any given time due to salt corrosion of pole bases, outdated ballasts incompatible with modern lamp types, and repeated cable theft from unprotected surface conduit runs. The northern extension of approximately 3.2 kilometres requires new pole foundations, galvanised and marine-grade powder-coated poles, LED luminaires rated for coastal environments (salt mist category C4 per ISO 12944), underground armoured cable, and five new distribution cabinets. For the existing southern section (2.1 kilometres), the works include replacement of all 312 pole bases with stainless steel anchor bolt sets to address salt corrosion, replacement of all ballasts and lamp heads with LED conversion kits, replacement of surface conduit with underground armoured cable to eliminate theft exposure, and SCADA-compatible dimming controllers to allow adaptive lighting from 22:00 to 05:00 for energy saving. The boulevard is a major tourist attraction and national infrastructure priority; all works must be conducted in a manner that maintains pedestrian access and minimises disruption to seafront commerce.",
+    "procurementMethod": "open",
+    "procurementMethodDetails": "International open competitive tender — EBRD co-financed",
+    "status": "complete",
+    "value": {
+      "amount": 11200000,
+      "currency": "GEL"
+    },
+    "tenderPeriod": {
+      "startDate": "2022-04-01T00:00:00Z",
+      "endDate": "2022-07-31T23:59:00Z"
+    },
+    "items": [
+      {
+        "id": "1",
+        "description": "Marine-grade street lamp pole (10m, powder-coated, C4 corrosion class) with foundation",
+        "quantity": 480,
+        "unit": {"name": "pole", "value": {"amount": 2800, "currency": "GEL"}}
+      },
+      {
+        "id": "2",
+        "description": "LED luminaire coastal grade (150W, 4000K, IP67, IK10)",
+        "quantity": 480,
+        "unit": {"name": "unit", "value": {"amount": 1450, "currency": "GEL"}}
+      },
+      {
+        "id": "3",
+        "description": "Stainless steel anchor bolt replacement set for existing poles",
+        "quantity": 312,
+        "unit": {"name": "set", "value": {"amount": 380, "currency": "GEL"}}
+      },
+      {
+        "id": "4",
+        "description": "LED conversion kit for existing luminaire housing",
+        "quantity": 312,
+        "unit": {"name": "unit", "value": {"amount": 620, "currency": "GEL"}}
+      },
+      {
+        "id": "5",
+        "description": "Underground armoured cable (NYFGbY 4x25mm2) coastal grade per metre",
+        "quantity": 14000,
+        "unit": {"name": "metre", "value": {"amount": 48, "currency": "GEL"}}
+      },
+      {
+        "id": "6",
+        "description": "SCADA distribution cabinet with dimming controller",
+        "quantity": 8,
+        "unit": {"name": "unit", "value": {"amount": 18500, "currency": "GEL"}}
+      },
+      {
+        "id": "7",
+        "description": "Underground cable trench excavation and reinstatement per metre",
+        "quantity": 14000,
+        "unit": {"name": "metre", "value": {"amount": 65, "currency": "GEL"}}
+      }
+    ]
+  },
+  "awards": [
+    {
+      "id": "batumi-award-2022-bl-001",
+      "status": "active",
+      "date": "2022-09-05T00:00:00Z",
+      "value": {"amount": 10900000, "currency": "GEL"},
+      "suppliers": [
+        {
+          "id": "GE-COMPANY-ADJARLIGHT-001",
+          "name": "Adjara Light Construction and Services Ltd"
+        }
+      ],
+      "description": "Award for Batumi boulevard lighting project under EBRD co-financing framework. Supplier qualified under international competitive tender with EBRD procurement rules. Demonstrated experience on Black Sea coastal lighting projects in Poti and Kobuleti 2018–2021. Compliant with ILO labour standards as required by EBRD environmental and social requirements. SCADA integration to connect to Batumi city operations centre."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "batumi-contract-2022-bl-001",
+      "awardID": "batumi-award-2022-bl-001",
+      "status": "terminated",
+      "period": {
+        "startDate": "2022-10-01T00:00:00Z",
+        "endDate": "2023-09-30T23:59:00Z"
+      },
+      "value": {"amount": 10900000, "currency": "GEL"},
+      "description": "Twelve-month contract for Batumi boulevard lighting works. Phase 1 (October–December 2022): underground cable works and foundation installation for northern extension during lower tourist season. Phase 2 (January–March 2023): pole and luminaire installation northern extension; anchor bolt replacement southern section conducted at night to minimise disruption. Phase 3 (April–June 2023): ballast and lamp head replacement southern section, distribution cabinet installation. Phase 4 (July–September 2023): SCADA commissioning, system integration testing, handover to Batumi city operations centre. EBRD monitoring officer conducted quarterly compliance inspections. Final handover accepted 28 September 2023 with 792 of 792 planned lighting points commissioned and SCADA dashboard operational. Post-completion: adaptive dimming schedule activated from 22:30 to 05:00, achieving 28 percent measured energy reduction versus baseline."
+    }
+  ]
+}
