@@ -5,7 +5,6 @@ from datetime import UTC, datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from redis.exceptions import RedisError
 from rq import Queue
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -20,7 +19,7 @@ from app.schemas.incidents import (
     IncidentSummaryResponse,
 )
 from app.workers.incidents import analyze_incident
-from app.workers.queue import get_default_queue
+from app.workers.queue import enqueue_or_503, get_default_queue
 
 router = APIRouter(prefix="/incidents", tags=["incidents"])
 
@@ -128,16 +127,18 @@ def analyze_incident_endpoint(
     incident.updated_at = datetime.now(UTC)
 
     try:
-        job = queue.enqueue(analyze_incident, str(incident.id))
-    except RedisError as exc:
+        job = enqueue_or_503(
+            queue,
+            analyze_incident,
+            str(incident.id),
+            detail="Analysis queue is unavailable",
+        )
+    except HTTPException:
         incident.status = previous_status
         incident.failure_details = previous_failure_details
         incident.updated_at = previous_updated_at
         db.rollback()
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Analysis queue is unavailable",
-        ) from exc
+        raise
 
     db.commit()
     db.refresh(incident)
