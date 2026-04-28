@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Generator
+from contextlib import contextmanager
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
@@ -13,6 +14,15 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, expi
 
 
 def get_db() -> Generator[Session, None, None]:
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+@contextmanager
+def session_scope() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
         yield db
