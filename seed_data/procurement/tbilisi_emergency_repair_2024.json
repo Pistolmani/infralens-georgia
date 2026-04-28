@@ -1,0 +1,89 @@
+{
+  "ocid": "ocds-tbilisi-2024-er-001",
+  "id": "tbilisi-2024-er-001-release-1",
+  "date": "2024-02-08T11:00:00Z",
+  "tag": ["award"],
+  "initiationType": "tender",
+  "language": "en",
+  "buyer": {
+    "id": "GE-TBILISI-CITY-HALL",
+    "name": "Tbilisi City Hall Infrastructure Department"
+  },
+  "tender": {
+    "id": "tbilisi-tender-2024-er-001",
+    "title": "Emergency Repair of Storm-Damaged Streetlighting Infrastructure — January 2024 Storm Event",
+    "description": "Emergency procurement for immediate repair and restoration of streetlighting infrastructure damaged during the severe ice storm of 14–16 January 2024. The storm caused widespread streetlight failures across Tbilisi with an estimated 3,200 luminaires non-functional due to direct ice loading on lamp arms, cable damage from fallen trees, and flooding of underground junction boxes. Most severely affected areas include Vake district (particularly Chavchavadze Avenue, Tsinamdzghvrishvili Street, and Ilia Chavchavadze Avenue upper sections), Mtatsminda (Mtatsminda Ascent road and surrounding residential streets), and Nadzaladevi (Kavtaradze Street and Tbilisi Sea Road). Emergency works required: replacement of broken lamp arms and luminaires on intact poles, repair or replacement of damaged underground feeder cables, waterproofing and drainage of flooded junction boxes and distribution cabinets, temporary luminaire deployment on poles awaiting permanent fixture, and structural assessment of poles showing signs of deformation from ice loading. Public safety concern: several key pedestrian routes including the Vake Park perimeter path, all hospital approach roads, and school zones are currently without streetlighting, creating safety hazards. Works are to be conducted under emergency procurement procedures justified by public safety urgency. The Infrastructure Department has pre-positioned 400 replacement LED luminaires from strategic reserve stock. These are to be used first in school and hospital zones.",
+    "procurementMethod": "limited",
+    "procurementMethodDetails": "Limited emergency procurement — public safety urgency",
+    "procurementMethodRationale": "Storm event of 14-16 January 2024 caused streetlight failures on hospital and school approach roads requiring immediate repair to ensure public safety. Open tender timelines incompatible with urgency.",
+    "status": "complete",
+    "value": {
+      "amount": 980000,
+      "currency": "GEL"
+    },
+    "tenderPeriod": {
+      "startDate": "2024-01-18T00:00:00Z",
+      "endDate": "2024-01-22T23:59:00Z"
+    },
+    "items": [
+      {
+        "id": "1",
+        "description": "Emergency lamp arm replacement (broken by ice loading)",
+        "quantity": 1400,
+        "unit": {"name": "unit", "value": {"amount": 185, "currency": "GEL"}}
+      },
+      {
+        "id": "2",
+        "description": "LED luminaire replacement (storm-damaged)",
+        "quantity": 1800,
+        "unit": {"name": "unit", "value": {"amount": 290, "currency": "GEL"}}
+      },
+      {
+        "id": "3",
+        "description": "Underground feeder cable repair (per damaged section)",
+        "quantity": 85,
+        "unit": {"name": "section", "value": {"amount": 1200, "currency": "GEL"}}
+      },
+      {
+        "id": "4",
+        "description": "Junction box drainage, waterproofing, and reinstatement",
+        "quantity": 220,
+        "unit": {"name": "unit", "value": {"amount": 340, "currency": "GEL"}}
+      },
+      {
+        "id": "5",
+        "description": "Temporary luminaire deployment (portable generator-backed)",
+        "quantity": 40,
+        "unit": {"name": "point", "value": {"amount": 850, "currency": "GEL"}}
+      }
+    ]
+  },
+  "awards": [
+    {
+      "id": "tbilisi-award-2024-er-001",
+      "status": "active",
+      "date": "2024-01-24T00:00:00Z",
+      "value": {"amount": 960000, "currency": "GEL"},
+      "suppliers": [
+        {
+          "id": "GE-COMPANY-LIGHTSERV-001",
+          "name": "Tbilisi Municipal Lighting Services LLC"
+        }
+      ],
+      "description": "Emergency award to incumbent maintenance contractor. As holder of the 2023 annual maintenance contract, supplier has immediate access to Tbilisi streetlight infrastructure diagrams, spare parts inventory, and trained crews. Supplier mobilised first crews within 6 hours of award. Priority order confirmed: (1) hospital approach roads — Gudushauri National Medical Centre, Tbilisi Children's Hospital, and Iashvili Children's Hospital access streets; (2) school zones across all affected districts; (3) Vake Park perimeter public safety lighting; (4) remaining residential areas by reported severity."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "tbilisi-contract-2024-er-001",
+      "awardID": "tbilisi-award-2024-er-001",
+      "status": "terminated",
+      "period": {
+        "startDate": "2024-01-25T00:00:00Z",
+        "endDate": "2024-03-31T23:59:00Z"
+      },
+      "value": {"amount": 960000, "currency": "GEL"},
+      "description": "Emergency repair contract for January 2024 storm damage restoration. Target: full restoration of all non-functional streetlights within 45 days from contract start. Hospital and school zones: restored within 5 days. Vake Park and main pedestrian routes: restored within 14 days. All remaining residential streets: restored within 45 days. Daily progress reporting required to Infrastructure Department via email until full restoration achieved. Poles assessed as structurally compromised by ice damage are to be temporarily decommissioned with hazard tape and documented for inclusion in the 2024 pole replacement programme. Post-restoration inspection by Infrastructure Department within 14 days of contractor declaring completion. Contract closed: all 3,200 reported non-functional streetlights confirmed restored by 12 March 2024."
+    }
+  ]
+}
