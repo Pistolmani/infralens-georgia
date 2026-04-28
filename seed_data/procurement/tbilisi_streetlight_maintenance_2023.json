@@ -1,0 +1,81 @@
+{
+  "ocid": "ocds-tbilisi-2023-sl-001",
+  "id": "tbilisi-2023-sl-001-release-1",
+  "date": "2023-03-15T10:00:00Z",
+  "tag": ["award"],
+  "initiationType": "tender",
+  "language": "en",
+  "buyer": {
+    "id": "GE-TBILISI-CITY-HALL",
+    "name": "Tbilisi City Hall Infrastructure Department"
+  },
+  "tender": {
+    "id": "tbilisi-tender-2023-sl-001",
+    "title": "Annual Streetlight Maintenance and Repair Services 2023",
+    "description": "Comprehensive annual maintenance contract for municipal streetlighting infrastructure across Tbilisi districts. The scope covers inspection, repair, bulb replacement, pole maintenance, and emergency response for failed streetlights. Districts covered include Mtatsminda, Vake, Saburtalo, Krtsanisi, Isani, Samgori, Chughureti, Didube, Nadzaladevi, and Gldani. Special attention is required for high-traffic corridors including Rustaveli Avenue, Agmashenebeli Avenue, Vazha-Pshavela Avenue, and Tsereteli Avenue. The contractor is responsible for responding to citizen-reported streetlight outages within 48 hours of notification. Lamp types serviced include high-pressure sodium (HPS), metal halide, and LED fixtures. Pole heights range from 6 to 12 meters. The contract includes a 24-hour emergency hotline and quarterly performance reporting to the Tbilisi City Hall Infrastructure Department.",
+    "procurementMethod": "open",
+    "procurementMethodDetails": "Open competitive tender",
+    "status": "complete",
+    "value": {
+      "amount": 2850000,
+      "currency": "GEL"
+    },
+    "tenderPeriod": {
+      "startDate": "2023-01-10T00:00:00Z",
+      "endDate": "2023-02-28T23:59:00Z"
+    },
+    "items": [
+      {
+        "id": "1",
+        "description": "Streetlight bulb replacement and lamp servicing",
+        "unit": {"name": "unit", "value": {"amount": 45, "currency": "GEL"}}
+      },
+      {
+        "id": "2",
+        "description": "Pole inspection, painting, and structural repair",
+        "unit": {"name": "pole", "value": {"amount": 320, "currency": "GEL"}}
+      },
+      {
+        "id": "3",
+        "description": "Emergency streetlight repair (after-hours callout)",
+        "unit": {"name": "callout", "value": {"amount": 180, "currency": "GEL"}}
+      },
+      {
+        "id": "4",
+        "description": "Control cabinet and electrical wiring maintenance",
+        "unit": {"name": "cabinet", "value": {"amount": 750, "currency": "GEL"}}
+      }
+    ]
+  },
+  "awards": [
+    {
+      "id": "tbilisi-award-2023-sl-001",
+      "status": "active",
+      "date": "2023-03-10T00:00:00Z",
+      "value": {"amount": 2780000, "currency": "GEL"},
+      "suppliers": [
+        {
+          "id": "GE-COMPANY-LIGHTSERV-001",
+          "name": "Tbilisi Municipal Lighting Services LLC"
+        }
+      ],
+      "description": "Award for annual streetlight maintenance contract. Supplier demonstrated capacity to service approximately 85,000 streetlight fixtures across all ten Tbilisi districts. Response time commitment of 24 hours for critical outages affecting pedestrian safety zones."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "tbilisi-contract-2023-sl-001",
+      "awardID": "tbilisi-award-2023-sl-001",
+      "status": "active",
+      "period": {
+        "startDate": "2023-04-01T00:00:00Z",
+        "endDate": "2024-03-31T23:59:00Z"
+      },
+      "value": {"amount": 2780000, "currency": "GEL"},
+      "description": "Twelve-month maintenance contract for Tbilisi municipal streetlighting. Includes all districts with priority service corridors: Rustaveli Avenue central section (Tavisuplebis Moedani to Chavchavadze Avenue), Vake Park perimeter, Saburtalo residential zones, and all pedestrian underpasses. Contractor maintains a depot on Gldani Highway with spare parts inventory for common lamp types and poles. Monthly inspection reports must be submitted to the Infrastructure Department by the 5th of each month. Streetlights reported as non-functional for more than 72 hours trigger a penalty clause equivalent to 0.1 percent of monthly contract value per fixture per day.",
+      "implementation": {
+        "transactions": []
+      }
+    }
+  ]
+}
