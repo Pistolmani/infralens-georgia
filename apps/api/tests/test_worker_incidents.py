@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+from contextlib import contextmanager
 
 from app.models.tables import Incident
 from app.workers.incidents import ANALYSIS_NOT_IMPLEMENTED_MESSAGE, analyze_incident
@@ -34,7 +35,14 @@ def test_analyze_incident_placeholder_fails_visibly(monkeypatch) -> None:
     )
     session = FakeWorkerSession(incident)
 
-    monkeypatch.setattr("app.workers.incidents.SessionLocal", lambda: session)
+    @contextmanager
+    def fake_scope():
+        try:
+            yield session
+        finally:
+            session.close()
+
+    monkeypatch.setattr("app.workers.incidents.session_scope", fake_scope)
 
     analyze_incident(str(incident.id))
 
