@@ -1,0 +1,100 @@
+{
+  "ocid": "ocds-kutaisi-2023-sl-001",
+  "id": "kutaisi-2023-sl-001-release-1",
+  "date": "2023-05-10T08:30:00Z",
+  "tag": ["award"],
+  "initiationType": "tender",
+  "language": "en",
+  "buyer": {
+    "id": "GE-KUTAISI-CITY-HALL",
+    "name": "Kutaisi Municipality Infrastructure and Transport Service"
+  },
+  "tender": {
+    "id": "kutaisi-tender-2023-sl-001",
+    "title": "Street Lamp Replacement and New Installation — Kutaisi Central and Western Districts",
+    "description": "Procurement for street lamp replacement in deteriorated areas and new streetlight installation for previously unlit streets in Kutaisi. The programme addresses a significant backlog of non-functional streetlights reported by residents in Nikea, Garejvari, and Balakhvani districts. Approximately 1,800 existing lamp heads are beyond economical repair due to age and vandalism. A further 600 new poles and luminaires are required for newly paved streets in the western residential expansion zone adjacent to the Rioni River embankment. Works include: removal of condemned poles and foundations, supply and installation of galvanised steel poles (8 and 10 metre heights), supply and installation of LED luminaires (70W and 100W), underground cable laying for new installation sections, connection to existing distribution cabinets where capacity permits, and installation of three new distribution cabinets where existing infrastructure cannot support the additional load. Street lamp placement must comply with Georgian Road Lighting Standard STG EN 13201-2 with minimum illuminance of 7.5 lux for residential streets and 15 lux for collector roads. Priority streets for restoration include Tskaltubo Road, David Agmashenebeli Street (Kutaisi), Gelati Street, and the market area around Kutaisi Central Market.",
+    "procurementMethod": "open",
+    "procurementMethodDetails": "National open competitive tender",
+    "status": "complete",
+    "value": {
+      "amount": 3100000,
+      "currency": "GEL"
+    },
+    "tenderPeriod": {
+      "startDate": "2023-02-20T00:00:00Z",
+      "endDate": "2023-04-10T23:59:00Z"
+    },
+    "items": [
+      {
+        "id": "1",
+        "description": "Removal and disposal of condemned street lamp poles",
+        "quantity": 1800,
+        "unit": {"name": "pole", "value": {"amount": 95, "currency": "GEL"}}
+      },
+      {
+        "id": "2",
+        "description": "Supply and install galvanised steel pole 8m with foundation",
+        "quantity": 1400,
+        "unit": {"name": "pole", "value": {"amount": 420, "currency": "GEL"}}
+      },
+      {
+        "id": "3",
+        "description": "Supply and install galvanised steel pole 10m with foundation",
+        "quantity": 1000,
+        "unit": {"name": "pole", "value": {"amount": 580, "currency": "GEL"}}
+      },
+      {
+        "id": "4",
+        "description": "LED luminaire 70W for residential streets",
+        "quantity": 1600,
+        "unit": {"name": "unit", "value": {"amount": 310, "currency": "GEL"}}
+      },
+      {
+        "id": "5",
+        "description": "LED luminaire 100W for collector roads",
+        "quantity": 800,
+        "unit": {"name": "unit", "value": {"amount": 410, "currency": "GEL"}}
+      },
+      {
+        "id": "6",
+        "description": "Underground cable (NYY 4x16mm2) per metre",
+        "quantity": 8500,
+        "unit": {"name": "metre", "value": {"amount": 28, "currency": "GEL"}}
+      },
+      {
+        "id": "7",
+        "description": "Distribution cabinet (24-circuit) supply and install",
+        "quantity": 3,
+        "unit": {"name": "unit", "value": {"amount": 4200, "currency": "GEL"}}
+      }
+    ]
+  },
+  "awards": [
+    {
+      "id": "kutaisi-award-2023-sl-001",
+      "status": "active",
+      "date": "2023-05-02T00:00:00Z",
+      "value": {"amount": 3050000, "currency": "GEL"},
+      "suppliers": [
+        {
+          "id": "GE-COMPANY-IMERETI-ELECTRO",
+          "name": "Imereti Electro Construction LLC"
+        }
+      ],
+      "description": "Award for Kutaisi street lamp replacement and new installation. Local contractor with base in Kutaisi, prior experience on Imereti regional road lighting projects 2019–2022. Work schedule: 8 months from contract commencement. Contractor to provide traffic management plan for cable laying works on Tskaltubo Road prior to commencing works on that section."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "kutaisi-contract-2023-sl-001",
+      "awardID": "kutaisi-award-2023-sl-001",
+      "status": "active",
+      "period": {
+        "startDate": "2023-06-01T00:00:00Z",
+        "endDate": "2024-01-31T23:59:00Z"
+      },
+      "value": {"amount": 3050000, "currency": "GEL"},
+      "description": "Eight-month contract for street lamp works in Kutaisi. Mobilisation and removal of condemned poles: June 2023. New pole installation and cable laying — Nikea and Garejvari: July–September 2023. New pole installation and cable laying — Balakhvani and Rioni embankment new streets: October–December 2023. Distribution cabinet installation and final connections: January 2024. Kutaisi Municipality inspector to sign off each district section before contractor invoices for that phase. All works within 30 metres of archaeological buffer zones (applicable near Gelati Street) require separate heritage authority approval before ground disturbance."
+    }
+  ]
+}
