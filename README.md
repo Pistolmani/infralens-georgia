@@ -1,6 +1,12 @@
 # InfraLens Georgia
 
-InfraLens Georgia is a local-first portfolio app for Georgian municipal infrastructure incident analysis. Milestone 1 creates the runnable foundation only: FastAPI, Next.js, PostgreSQL with pgvector, Redis/RQ, Ollama wiring, Alembic migrations, and scaffold tests.
+InfraLens Georgia is a local-first civic infrastructure analysis project focused on Georgian municipal incident reports. It is designed to turn Georgian or English free-text reports into structured incident records with issue classification, extracted entities, supporting procurement evidence, bilingual Georgian/English briefs, citation grounding, and traceable local-model execution.
+
+The current milestone ships the runnable foundation: FastAPI, Next.js, PostgreSQL with pgvector, Redis/RQ, Ollama wiring, Alembic migrations, committed streetlight procurement seed data, generated frontend API types, and scaffold tests.
+
+## Product Description
+
+InfraLens Georgia is a privacy-preserving infrastructure intelligence tool for analyzing Georgian municipal streetlight incidents. The product combines a FastAPI backend, Next.js frontend, PostgreSQL/pgvector retrieval layer, Redis/RQ background jobs, and local Ollama models to support an end-to-end workflow: submit a civic report, classify the infrastructure issue, retrieve relevant public procurement evidence, generate a bilingual incident brief, and inspect the trace behind the result. It is built as a production-style modular monolith that demonstrates grounded AI analysis without hosted LLM APIs, paid cloud dependencies, maps, auth, or multi-tenant complexity in v1.
 
 ## Requirements
 
