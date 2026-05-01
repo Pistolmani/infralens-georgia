@@ -23,7 +23,7 @@ Runtime services:
 - `worker`: Python RQ worker using the same backend codebase. Executes ingestion, incident analysis, and eval jobs.
 - `postgres`: PostgreSQL 16 with pgvector enabled. Stores incidents, documents, chunks, embeddings, traces, and eval data.
 - `redis`: Queue broker for RQ.
-- `ollama`: Local model runtime. Hosts `qwen3:8b` for structured reasoning and the configured embedding model, default `bge-m3`.
+- `ollama`: Local model runtime. Hosts the configured reasoning model, default `qwen3:1.7b`, and the configured embedding model, default `bge-m3`.
 
 Text diagram:
 
@@ -280,7 +280,7 @@ Milestone 1 creates the runnable foundation only.
 
 Implement repo structure for the modular monolith, including backend, frontend, prompts, seed data, eval case folders, scripts, and docs. Add Docker Compose with `api`, `web`, `postgres+pgvector`, `redis`, and `ollama`.
 
-Add `bootstrap-ollama.sh` to pull `qwen3:8b` and the configured embedding model from `OLLAMA_EMBED_MODEL`, defaulting to `bge-m3`.
+Add `bootstrap-ollama.sh` to pull the configured reasoning model from `OLLAMA_REASONING_MODEL`, defaulting to `qwen3:1.7b`, and the configured embedding model from `OLLAMA_EMBED_MODEL`, defaulting to `bge-m3`.
 
 Create FastAPI startup, settings, DB session wiring, Redis health check, Ollama health check, and `GET /healthz` with structured service health.
 
@@ -296,7 +296,7 @@ End Milestone 1 with: tests run, what changed, what works, what remains, and wha
 
 14. Risks And Mitigations
 
-Local hardware may be too small for `qwen3:8b` and `bge-m3` together. Mitigation: document hardware expectations in README and fail clearly when Ollama cannot load a model. Do not add hosted fallback in v1.
+Local hardware may be too small or too slow for larger reasoning models such as `qwen3:4b` or `qwen3:8b` with `bge-m3`. Mitigation: default to `qwen3:1.7b`, keep the reasoning model configurable, document hardware expectations in README, and fail clearly when Ollama cannot load a model. Do not add hosted fallback in v1.
 
 Ollama model naming for `bge-m3` may differ by local registry availability. Mitigation: keep the model configurable through `OLLAMA_EMBED_MODEL`, validate dimensions, and document the expected 1024-dimensional requirement.
 

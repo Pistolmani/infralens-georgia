@@ -86,7 +86,12 @@ def test_ollama_reasoning_client_parses_generate_response() -> None:
         "prompt": "Return JSON",
         "stream": False,
         "format": "json",
-        "options": {"temperature": 0.0},
+        "think": False,
+        "options": {
+            "temperature": 0.0,
+            "num_ctx": 1024,
+            "num_predict": 256,
+        },
     }
 
 

@@ -41,7 +41,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-infralens}:${POSTGRES_PASSWORD:-infralens}@postgres:5432/${POSTGRES_DB:-infralens}
       REDIS_URL: redis://redis:6379/0
       OLLAMA_BASE_URL: http://ollama:11434
-      OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:8b}
+      OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:1.7b}
       OLLAMA_EMBED_MODEL: ${OLLAMA_EMBED_MODEL:-bge-m3}
       INGEST_KEY: ${INGEST_KEY:-change-me-local}
       SEED_DATA_DIR: /workspace/seed_data/procurement
@@ -70,7 +70,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-infralens}:${POSTGRES_PASSWORD:-infralens}@postgres:5432/${POSTGRES_DB:-infralens}
       REDIS_URL: redis://redis:6379/0
       OLLAMA_BASE_URL: http://ollama:11434
-      OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:8b}
+      OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:1.7b}
       OLLAMA_EMBED_MODEL: ${OLLAMA_EMBED_MODEL:-bge-m3}
       INGEST_KEY: ${INGEST_KEY:-change-me-local}
       SEED_DATA_DIR: /workspace/seed_data/procurement

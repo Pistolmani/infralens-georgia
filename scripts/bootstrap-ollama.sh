@@ -2,7 +2,7 @@
 set -euo pipefail
 
 OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-http://localhost:11434}"
-OLLAMA_REASONING_MODEL="${OLLAMA_REASONING_MODEL:-qwen3:8b}"
+OLLAMA_REASONING_MODEL="${OLLAMA_REASONING_MODEL:-qwen3:1.7b}"
 OLLAMA_EMBED_MODEL="${OLLAMA_EMBED_MODEL:-bge-m3}"
 
 if ! command -v curl >/dev/null 2>&1; then
@@ -23,4 +23,3 @@ pull_model "${OLLAMA_REASONING_MODEL}"
 pull_model "${OLLAMA_EMBED_MODEL}"
 
 echo "Ollama bootstrap complete."
-

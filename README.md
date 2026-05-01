@@ -14,7 +14,7 @@ InfraLens Georgia is a privacy-preserving infrastructure intelligence tool for a
 - Enough local memory to run PostgreSQL, Redis, the web/API containers, and Ollama models
 - Ollama models are local only; v1 does not use hosted LLM APIs
 
-`qwen3:8b` can be memory-heavy. If model pulls or analysis fail later, check local RAM/VRAM before changing the app design.
+`qwen3:1.7b` is the default local reasoning model because it fits comfortably in Docker Desktop's default memory allocation and keeps local analysis responsive. `qwen3:4b` or `qwen3:8b` are higher-quality options for machines with more CPU/RAM headroom; set `OLLAMA_REASONING_MODEL` if you want to use one.
 
 ## Startup
 

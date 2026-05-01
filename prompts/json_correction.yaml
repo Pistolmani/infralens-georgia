@@ -1,6 +1,6 @@
 name: json_correction
 version: v1
-model: qwen3:8b
+model: qwen3:1.7b
 temperature: 0.0
 output_schema: CorrectedJson
 template: |

@@ -1,6 +1,6 @@
 name: extract_entities
 version: v1
-model: qwen3:8b
+model: qwen3:1.7b
 temperature: 0.0
 output_schema: ExtractEntitiesOutput
 template: |
@@ -18,8 +18,9 @@ template: |
       "infrastructure_objects": ["..."],
       "other": ["..."]
     },
-    "extract_conf": 0.0
+    "extract_conf": 0.85
   }
+  Set extract_conf to your confidence from 0.0 to 1.0. Use 0.0 only when extraction is impossible or the report is empty/irrelevant.
 
   Keep NormalizeInput internal to this extraction step by using this whitespace-normalized text as the baseline:
   $normalized_input

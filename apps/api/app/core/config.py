@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     )
     redis_url: str = Field(default="redis://localhost:6379/0", alias="REDIS_URL")
     ollama_base_url: str = Field(default="http://localhost:11434", alias="OLLAMA_BASE_URL")
-    ollama_reasoning_model: str = Field(default="qwen3:8b", alias="OLLAMA_REASONING_MODEL")
+    ollama_reasoning_model: str = Field(default="qwen3:1.7b", alias="OLLAMA_REASONING_MODEL")
     ollama_embed_model: str = Field(default="bge-m3", alias="OLLAMA_EMBED_MODEL")
     ingest_key: str = Field(default="change-me-local", alias="INGEST_KEY")
     seed_data_dir: Path = Field(default=Path("seed_data/procurement"), alias="SEED_DATA_DIR")

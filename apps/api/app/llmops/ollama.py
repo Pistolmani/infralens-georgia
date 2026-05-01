@@ -38,7 +38,12 @@ class OllamaReasoningClient:
                     "prompt": prompt,
                     "stream": False,
                     "format": "json",
-                    "options": {"temperature": temperature},
+                    "think": False,
+                    "options": {
+                        "temperature": temperature,
+                        "num_ctx": 1024,
+                        "num_predict": 256,
+                    },
                 },
             )
             response.raise_for_status()
