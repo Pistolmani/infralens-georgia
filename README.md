@@ -24,6 +24,8 @@ InfraLens Georgia is a privacy-preserving infrastructure intelligence tool for a
 4. Pull local models with `make bootstrap` after Ollama is running.
 5. Run scaffold tests with `make test`.
 
+After the stack, migrations, worker, and Ollama models are running, run a live classify-only smoke test with `make smoke-analysis`. The target creates an incident, queues analysis, polls until the worker finishes, and prints status, issue type, severity, confidence, review flag, and failure details.
+
 Default local URLs:
 
 - Web: http://localhost:3000

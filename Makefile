@@ -1,6 +1,12 @@
 COMPOSE ?= docker compose
+API_BASE_URL ?= http://localhost:8000
+SMOKE_REPORT ?= Streetlights are out on Rustaveli Avenue near the bus stop.
+SMOKE_LANGUAGE_HINT ?= en
+SMOKE_LOCATION_HINT ?= Rustaveli Avenue
+SMOKE_TIMEOUT_SECONDS ?= 180
+SMOKE_POLL_SECONDS ?= 2
 
-.PHONY: up down migrate seed codegen test eval bootstrap
+.PHONY: up down migrate seed codegen test eval bootstrap smoke-analysis
 
 up:
 	$(COMPOSE) up --build
@@ -29,3 +35,22 @@ eval:
 
 bootstrap:
 	./scripts/bootstrap-ollama.sh
+
+smoke-analysis:
+	@if [ -x .venv/bin/python ]; then \
+		API_BASE_URL="$(API_BASE_URL)" \
+		SMOKE_REPORT="$(SMOKE_REPORT)" \
+		SMOKE_LANGUAGE_HINT="$(SMOKE_LANGUAGE_HINT)" \
+		SMOKE_LOCATION_HINT="$(SMOKE_LOCATION_HINT)" \
+		SMOKE_TIMEOUT_SECONDS="$(SMOKE_TIMEOUT_SECONDS)" \
+		SMOKE_POLL_SECONDS="$(SMOKE_POLL_SECONDS)" \
+		.venv/bin/python scripts/smoke-analysis.py; \
+	else \
+		API_BASE_URL="$(API_BASE_URL)" \
+		SMOKE_REPORT="$(SMOKE_REPORT)" \
+		SMOKE_LANGUAGE_HINT="$(SMOKE_LANGUAGE_HINT)" \
+		SMOKE_LOCATION_HINT="$(SMOKE_LOCATION_HINT)" \
+		SMOKE_TIMEOUT_SECONDS="$(SMOKE_TIMEOUT_SECONDS)" \
+		SMOKE_POLL_SECONDS="$(SMOKE_POLL_SECONDS)" \
+		python3 scripts/smoke-analysis.py; \
+	fi
