@@ -1,0 +1,24 @@
+name: classify_incident
+version: v1
+model: qwen3:8b
+temperature: 0.0
+output_schema: ClassifyIncidentOutput
+template: |
+  Classify this municipal infrastructure incident.
+  Return only a JSON object matching this schema:
+  {
+    "issue_type": "streetlight | road | drainage | waste | other",
+    "severity": "low | medium | high",
+    "rationale": "brief reason for the classification",
+    "classify_conf": 0.0
+  }
+
+  Streetlight incidents include outages, broken lamps, poles, lighting maintenance, unsafe dark pedestrian areas, or public lighting failures.
+
+  Normalized report:
+  $normalized_text
+
+  Detected language: $detected_language
+  Location: $location_text
+  Extracted entities:
+  $entities

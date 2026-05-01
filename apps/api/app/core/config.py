@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     ollama_embed_model: str = Field(default="bge-m3", alias="OLLAMA_EMBED_MODEL")
     ingest_key: str = Field(default="change-me-local", alias="INGEST_KEY")
     seed_data_dir: Path = Field(default=Path("seed_data/procurement"), alias="SEED_DATA_DIR")
+    prompts_dir: Path = Field(default=Path("prompts"), alias="PROMPTS_DIR")
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -32,4 +33,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

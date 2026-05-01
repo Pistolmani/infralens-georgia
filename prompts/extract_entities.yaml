@@ -1,0 +1,30 @@
+name: extract_entities
+version: v1
+model: qwen3:8b
+temperature: 0.0
+output_schema: ExtractEntitiesOutput
+template: |
+  You are extracting structured data from a Georgian municipal infrastructure incident report.
+  Return only a JSON object matching this schema:
+  {
+    "normalized_text": "single cleaned report string",
+    "detected_language": "ka | en | ru | unknown",
+    "location_text": "location phrase or null",
+    "entities": {
+      "street_names": ["..."],
+      "agencies": ["..."],
+      "procurement_terms": ["..."],
+      "dates": ["..."],
+      "infrastructure_objects": ["..."],
+      "other": ["..."]
+    },
+    "extract_conf": 0.0
+  }
+
+  Keep NormalizeInput internal to this extraction step by using this whitespace-normalized text as the baseline:
+  $normalized_input
+
+  Language hint: $language_hint
+  Location hint: $location_hint
+  Original report:
+  $report_text

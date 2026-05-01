@@ -1,0 +1,14 @@
+name: json_correction
+version: v1
+model: qwen3:8b
+temperature: 0.0
+output_schema: CorrectedJson
+template: |
+  The previous output for $node_name did not validate against $output_schema.
+  Return only one corrected JSON object. Do not include markdown.
+
+  Validation errors:
+  $validation_errors
+
+  Invalid output:
+  $invalid_output

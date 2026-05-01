@@ -2,7 +2,7 @@
 
 InfraLens Georgia is a local-first civic infrastructure analysis project focused on Georgian municipal incident reports. It is designed to turn Georgian or English free-text reports into structured incident records with issue classification, extracted entities, supporting procurement evidence, bilingual Georgian/English briefs, citation grounding, and traceable local-model execution.
 
-The current milestone ships the runnable foundation: FastAPI, Next.js, PostgreSQL with pgvector, Redis/RQ, Ollama wiring, Alembic migrations, committed streetlight procurement seed data, generated frontend API types, and scaffold tests.
+The current implementation ships the runnable foundation plus the first classify-only analysis slice: FastAPI, Next.js, PostgreSQL with pgvector, Redis/RQ, Ollama wiring, Alembic migrations, committed streetlight procurement seed data, generated frontend API types, structured prompt loading, agent trace logging, and scaffold tests.
 
 ## Product Description
 
@@ -31,6 +31,6 @@ Default local URLs:
 - Health: http://localhost:8000/healthz
 - Ollama: http://localhost:11434
 
-## Milestone 1 Boundaries
+## Current Boundaries
 
-This scaffold intentionally does not implement procurement ingestion, RAG retrieval, LangGraph analysis, eval execution, or the complete incident workflow. Those features should be added in later milestones using the module boundaries documented in `docs/architecture.md`.
+This implementation supports incident intake and classify-only local analysis. It intentionally does not yet implement RAG-backed evidence retrieval inside the analysis worker, bilingual brief generation, citation grounding, LangGraph orchestration, eval execution, or the complete incident workflow. Those features should be added in later milestones using the module boundaries documented in `docs/architecture.md`.

@@ -44,6 +44,8 @@ services:
       OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:8b}
       OLLAMA_EMBED_MODEL: ${OLLAMA_EMBED_MODEL:-bge-m3}
       INGEST_KEY: ${INGEST_KEY:-change-me-local}
+      SEED_DATA_DIR: /workspace/seed_data/procurement
+      PROMPTS_DIR: /workspace/prompts
     ports:
       - "8000:8000"
     depends_on:
@@ -71,6 +73,8 @@ services:
       OLLAMA_REASONING_MODEL: ${OLLAMA_REASONING_MODEL:-qwen3:8b}
       OLLAMA_EMBED_MODEL: ${OLLAMA_EMBED_MODEL:-bge-m3}
       INGEST_KEY: ${INGEST_KEY:-change-me-local}
+      SEED_DATA_DIR: /workspace/seed_data/procurement
+      PROMPTS_DIR: /workspace/prompts
     depends_on:
       postgres:
         condition: service_healthy
@@ -98,4 +102,3 @@ services:
 volumes:
   postgres_data:
   ollama_data:
-
